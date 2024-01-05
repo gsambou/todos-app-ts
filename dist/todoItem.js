@@ -11,3 +11,4 @@ export class TodoItem {
         console.log(`${this.id}\t${this.task} ${this.complete ? "\t(complete)" : ""}`);
     }
 }
+;

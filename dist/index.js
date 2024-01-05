@@ -1,19 +1,17 @@
 import { TodoItem } from './todoItem.js';
-import { TodoCollection } from './todoCollection.js';
+import { JsonTodoCollection } from './jsonTodoCollection.js';
 import inquirer from 'inquirer';
 let todos = [
     new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Get Shoes"),
     new TodoItem(3, "Collect Tickets"), new TodoItem(4, "Call Joe", true)
 ];
-let collection = new TodoCollection("Adam", todos);
+let collection = new JsonTodoCollection("Adam", todos);
 let showCompleted = true;
 function displayTodoList() {
     let pendingTasks = collection.getItemCounts().incomplete;
     console.clear();
     console.log(`\n${collection.userName}'s Todo List (${pendingTasks} items to do)`);
-    //collection.getTodoItems(true).forEach(item => item.printDetails());
     collection.getTodoItems(showCompleted).forEach(item => item.printDetails());
-    //collection.removeComplete();
 }
 ;
 var Commands;
